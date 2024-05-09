@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
 import './explorer.css'
+import ColourSquare from './colourSquare'
 
 function Explorer() {
   const [green, setGreen] = useState(8)
@@ -10,8 +9,8 @@ function Explorer() {
   return (
     <>
       <div>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <ColourSquare colour="white"/>
+        <ColourSquare colour="green"/>
       </div>
       <h1>9 bit colours</h1>
       <h2>An explorer</h2>
