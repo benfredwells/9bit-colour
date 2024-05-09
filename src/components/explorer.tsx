@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
+import './explorer.css'
+
+function Explorer() {
   const [green, setGreen] = useState(8)
 
   return (
@@ -27,4 +28,4 @@ function App() {
   )
 }
 
-export default App
+export default Explorer
