@@ -5,6 +5,7 @@ interface Props {
 }
 
 function ColourSquare({ colour } : Props) {
+  console.log(`Colour: ${colour}`)
   const style = {
     backgroundColor: colour
   }
