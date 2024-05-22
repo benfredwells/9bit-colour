@@ -1,0 +1,8 @@
+v0.1 RGB
+- better green chooser
+- copy when click, with cursor
+- ability to choose the control colour
+- options to control how 9 bit colours are mapped to 24 bit
+
+v0.2 Hue version
+
