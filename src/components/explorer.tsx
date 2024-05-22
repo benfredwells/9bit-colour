@@ -4,7 +4,7 @@ import "./explorer.css";
 import ColourSquare from "./colourSquare";
 
 function Explorer() {
-  const [green, setGreen] = useState(8);
+  const [green, setGreen] = useState(0);
 
   const redValues: Array<number> = Array.from(Array(8).keys());
   const blueValues: Array<number> = Array.from(Array(8).keys());
@@ -52,9 +52,9 @@ function Explorer() {
       <h1>9 bit colours</h1>
       <h2>An explorer</h2>
       <div className="card">
-        <button onClick={() => setGreen((green) => green + 1)}>Up</button>
-        Green: {green}
         <button onClick={() => setGreen((green) => green - 1)}>Down</button>
+        Green: {green}
+        <button onClick={() => setGreen((green) => green + 1)}>Up</button>
       </div>
     </>
   );
