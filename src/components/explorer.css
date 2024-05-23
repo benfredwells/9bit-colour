@@ -38,3 +38,7 @@
   border-width: 3px;
   margin: 3px;
 }
+
+.colourSquare.copyable {
+  cursor: copy;
+}

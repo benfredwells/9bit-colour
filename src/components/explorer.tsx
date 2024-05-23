@@ -45,7 +45,9 @@ function Explorer() {
               key={greenVal}
               colour={colourForControlValue(greenVal)}
               selected={greenVal == green}
-              onClick={() => {setGreen(greenVal)}}
+              onClick={() => {
+                setGreen(greenVal);
+              }}
             />
           );
         })}
@@ -60,6 +62,12 @@ function Explorer() {
                   <ColourSquare
                     key={blue}
                     colour={colourForGridValues(red, blue)}
+                    copyable
+                    onClick={() => {
+                      navigator.clipboard.writeText(
+                        colourForGridValues(red, blue)
+                      );
+                    }}
                   />
                 );
               })}
