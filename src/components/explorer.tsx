@@ -55,53 +55,61 @@ function Explorer() {
   return (
     <>
       <h1>9 bit colours</h1>
-      <h2>Choose green value</h2>
       <div className="row">
-        {colourValues.map((greenVal) => {
-          return (
-            <ColourSquare
-              key={greenVal}
-              colour={colourForControlValue(greenVal)}
-              selected={greenVal == green}
-              onClick={() => {
-                setGreen(greenVal);
-              }}
-            />
-          );
-        })}
+        <div className="panel">
+          <div className="menu"></div>
+        </div>
+        <div className="hSpacer"></div>
+        <div className="panel">
+          <h2>Choose green value</h2>
+          <div className="row">
+            {colourValues.map((greenVal) => {
+              return (
+                <ColourSquare
+                  key={greenVal}
+                  colour={colourForControlValue(greenVal)}
+                  selected={greenVal == green}
+                  onClick={() => {
+                    setGreen(greenVal);
+                  }}
+                />
+              );
+            })}
+          </div>
+          <div className="vSpacer" />
+          <div className="grid">
+            {colourValues.map((red) => {
+              return (
+                <div key={red} className="row">
+                  {colourValues.map((blue) => {
+                    return (
+                      <ColourSquare
+                        key={blue}
+                        colour={colourForGridValues(red, blue)}
+                        copyable
+                        onClick={() => {
+                          navigator.clipboard
+                            .writeText(copyTextForGridValues(red, blue))
+                            .then(() =>
+                              setStatus(
+                                `Copied ${copyTextForGridValues(red, blue)}`
+                              )
+                            );
+                        }}
+                        onMouseEnter={() =>
+                          setStatus(copyTextForGridValues(red, blue))
+                        }
+                        onMouseLeave={() => setStatus("")}
+                      />
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+          <div className="status">{status}</div>
+        </div>
       </div>
-      <div className="spacer" />
-      <div className="grid">
-        {colourValues.map((red) => {
-          return (
-            <div key={red} className="row">
-              {colourValues.map((blue) => {
-                return (
-                  <ColourSquare
-                    key={blue}
-                    colour={colourForGridValues(red, blue)}
-                    copyable
-                    onClick={() => {
-                      navigator.clipboard
-                        .writeText(copyTextForGridValues(red, blue))
-                        .then(() =>
-                          setStatus(
-                            `Copied ${copyTextForGridValues(red, blue)}`
-                          )
-                        );
-                    }}
-                    onMouseEnter={() =>
-                      setStatus(copyTextForGridValues(red, blue))
-                    }
-                    onMouseLeave={() => setStatus("")}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-      <div className="status">{status}</div>
     </>
   );
 }

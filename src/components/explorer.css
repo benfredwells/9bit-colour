@@ -15,7 +15,17 @@
   flex-direction: row;
 }
 
-.spacer {
+.panel {
+  border: #D0D0D0 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.hSpacer {
+  width: 10px;
+}
+
+.vSpacer {
   height: 30px;
 }
 
@@ -44,5 +54,5 @@
 }
 
 .status {
-  height: 30px;
+  height: 20px;
 }
