@@ -1,5 +1,3 @@
-import "./colourSquare.css";
-
 interface Props extends React.ComponentPropsWithRef<"div"> {
   colour: string;
   selected?: boolean;
