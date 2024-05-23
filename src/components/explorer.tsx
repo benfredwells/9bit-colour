@@ -57,7 +57,9 @@ function Explorer() {
       <h1>9 bit colours</h1>
       <div className="row">
         <div className="panel">
-          <div className="menu"></div>
+          <div className="menu">
+            <h2>Menu</h2>
+          </div>
         </div>
         <div className="hSpacer"></div>
         <div className="panel">
