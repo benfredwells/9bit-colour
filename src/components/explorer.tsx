@@ -55,9 +55,13 @@ function Explorer() {
       <h1>9 bit colours</h1>
       <h2>An explorer</h2>
       <div className="row">
-        {colourValues.map((green) => {
+        {colourValues.map((greenVal) => {
           return (
-            <ColourSquare key={green} colour={colourForControlValue(green)} />
+            <ColourSquare
+              key={greenVal}
+              colour={colourForControlValue(greenVal)}
+              selected={greenVal == green}
+            />
           );
         })}
       </div>
