@@ -16,7 +16,24 @@ function Explorer() {
     return num;
   };
 
-  const colourForGridValues = (red: number, blue: number) => {
+  const hex2digit = (num: number): string => {
+    let result = num.toString(16);
+    if (result.length == 1) {
+      result = "0" + result;
+    }
+    return result;
+  };
+  
+  const copyTextForGridValues = (red: number, blue: number): string => {
+    return (
+      "#" +
+      hex2digit(from3bitTo8(red)) +
+      hex2digit(from3bitTo8(green)) +
+      hex2digit(from3bitTo8(blue))
+    );
+  };
+
+  const colourForGridValues = (red: number, blue: number): string => {
     const result =
       "rgb(" +
       from3bitTo8(red) +
@@ -65,7 +82,7 @@ function Explorer() {
                     copyable
                     onClick={() => {
                       navigator.clipboard.writeText(
-                        colourForGridValues(red, blue)
+                        copyTextForGridValues(red, blue)
                       );
                     }}
                   />
