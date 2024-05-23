@@ -61,6 +61,7 @@ function Explorer() {
               key={greenVal}
               colour={colourForControlValue(greenVal)}
               selected={greenVal == green}
+              onClick={() => {setGreen(greenVal)}}
             />
           );
         })}
