@@ -1,8 +1,12 @@
+Cleanup
+- refactor utilities out
+- refactor components a bit (e.g. have palette square, control square)
+- use em instead of px?
+- clean up index.css
+
 v0.1 RGB
 - ability to choose the control colour
 - options to control how 9 bit colours are mapped to 24 bit
-- refactor utilities out
-- refactor components a bit (e.g. have palette square, control square)
 
 v0.2 Hue version
 
