@@ -42,3 +42,7 @@
 .colourSquare.copyable {
   cursor: copy;
 }
+
+.status {
+  height: 30px;
+}

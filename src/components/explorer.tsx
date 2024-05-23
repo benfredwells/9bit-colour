@@ -5,6 +5,7 @@ import ColourSquare from "./colourSquare";
 
 function Explorer() {
   const [green, setGreen] = useState(0);
+  const [status, setStatus] = useState("");
 
   const colourValues: Array<number> = Array.from(Array(8).keys());
 
@@ -23,7 +24,7 @@ function Explorer() {
     }
     return result;
   };
-  
+
   const copyTextForGridValues = (red: number, blue: number): string => {
     return (
       "#" +
@@ -81,10 +82,18 @@ function Explorer() {
                     colour={colourForGridValues(red, blue)}
                     copyable
                     onClick={() => {
-                      navigator.clipboard.writeText(
-                        copyTextForGridValues(red, blue)
-                      );
+                      navigator.clipboard
+                        .writeText(copyTextForGridValues(red, blue))
+                        .then(() =>
+                          setStatus(
+                            `Copied ${copyTextForGridValues(red, blue)}`
+                          )
+                        );
                     }}
+                    onMouseEnter={() =>
+                      setStatus(copyTextForGridValues(red, blue))
+                    }
+                    onMouseLeave={() => setStatus("")}
                   />
                 );
               })}
@@ -92,6 +101,7 @@ function Explorer() {
           );
         })}
       </div>
+      <div className="status">{status}</div>
     </>
   );
 }
