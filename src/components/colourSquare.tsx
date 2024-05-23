@@ -1,22 +1,22 @@
-import './colourSquare.css'
+import "./colourSquare.css";
 
-interface Props {
+interface Props extends React.ComponentPropsWithRef<"div"> {
   colour: string;
   selected?: boolean;
 }
 
-function ColourSquare({ colour, selected = false } : Props) {
-  console.log(`Colour: ${colour}`)
+function ColourSquare({ colour, selected = false, ...props }: Props) {
+  console.log(`Colour: ${colour}`);
   const style = {
-    backgroundColor: colour
-  }
+    backgroundColor: colour,
+  };
 
   let classes = "colourSquare";
   if (selected) {
     classes += " selected";
-  } 
+  }
 
-  return<div className={classes} style={style}/>
+  return <div className={classes} style={style} {...props} />;
 }
 
-export default ColourSquare
+export default ColourSquare;
