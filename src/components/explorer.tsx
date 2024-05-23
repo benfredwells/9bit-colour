@@ -36,6 +36,21 @@ function Explorer() {
 
   return (
     <>
+      <h1>9 bit colours</h1>
+      <h2>Choose green value</h2>
+      <div className="row">
+        {colourValues.map((greenVal) => {
+          return (
+            <ColourSquare
+              key={greenVal}
+              colour={colourForControlValue(greenVal)}
+              selected={greenVal == green}
+              onClick={() => {setGreen(greenVal)}}
+            />
+          );
+        })}
+      </div>
+      <div className="spacer" />
       <div className="grid">
         {colourValues.map((red) => {
           return (
@@ -52,23 +67,6 @@ function Explorer() {
           );
         })}
       </div>
-      <h1>9 bit colours</h1>
-      <h2>An explorer</h2>
-      <div className="row">
-        {colourValues.map((greenVal) => {
-          return (
-            <ColourSquare
-              key={greenVal}
-              colour={colourForControlValue(greenVal)}
-              selected={greenVal == green}
-              onClick={() => {setGreen(greenVal)}}
-            />
-          );
-        })}
-      </div>
-      <button onClick={() => setGreen((green) => green - 1)}>Down</button>
-      Green: {green}
-      <button onClick={() => setGreen((green) => green + 1)}>Up</button>
     </>
   );
 }
