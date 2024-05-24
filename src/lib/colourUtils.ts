@@ -17,12 +17,26 @@ export const ALL_INTERPOLATION_METHODS: Array<InterpolationMethod> = [
   "linear",
 ];
 
-export function from3bitTo8(value: number): number {
-  let num = value << 5;
-  if (num != 0) {
-    num |= 0b00011111;
+export function from3bitTo8(value: number, options: RGBOptions): number {
+  switch (options.interpolation) {
+    case "ceiling": {
+      let num = value << 5;
+      if (num != 0) {
+        num |= 0b00011111;
+      }
+      return num;
+    }
+    case "floor": {
+      let num = value << 5;
+      if (num == 0b11100000) {
+        num = 0b11111111;
+      }
+      return num;
+    }
+    case "linear": {
+      return Math.round(value * 255 / 7);
+    }
   }
-  return num;
 }
 
 export function hex2digit(num: number): string {
@@ -58,9 +72,9 @@ export function copyTextForValues(
   let [red, green, blue] = controlAndVarsToRGB(control, var1, var2, options);
   return (
     "#" +
-    hex2digit(from3bitTo8(red)) +
-    hex2digit(from3bitTo8(green)) +
-    hex2digit(from3bitTo8(blue))
+    hex2digit(from3bitTo8(red, options)) +
+    hex2digit(from3bitTo8(green, options)) +
+    hex2digit(from3bitTo8(blue, options))
   );
 }
 
@@ -73,11 +87,11 @@ export function cssColourForValues(
   let [red, green, blue] = controlAndVarsToRGB(control, var1, var2, options);
   const result =
     "rgb(" +
-    from3bitTo8(red) +
+    from3bitTo8(red, options) +
     "," +
-    from3bitTo8(green) +
+    from3bitTo8(green, options) +
     "," +
-    from3bitTo8(blue) +
+    from3bitTo8(blue, options) +
     ")";
   console.log(result);
   return result;

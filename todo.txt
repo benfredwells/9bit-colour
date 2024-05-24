@@ -1,13 +1,11 @@
 Cleanup
-- refactor utilities out
 - refactor components a bit (e.g. have palette square, control square)
 - use em instead of px?
 - clean up index.css
 - better copy indicator (cursor is wrong)
-
-v0.1 RGB
-- ability to choose the control colour
-- options to control how 9 bit colours are mapped to 24 bit
+- add tooltips
 
 v0.2 Hue version
+
+v0.3 About page / Home
 
