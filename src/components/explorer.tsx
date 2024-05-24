@@ -5,9 +5,9 @@ import ColourSquare from "./colourSquare";
 import Menu from "./rgbOptions";
 import {
   RGBOptions,
-  copyTextForGridValues,
+  copyTextForValues,
   cssColourForControlValue,
-  cssColourForGridValues,
+  cssColourForValues,
 } from "../lib/colourUtils";
 
 function Explorer() {
@@ -15,7 +15,7 @@ function Explorer() {
     control: "green",
     interpolation: "linear",
   });
-  const [green, setGreen] = useState(0);
+  const [control, setControl] = useState(0);
   const [status, setStatus] = useState("");
 
   const colourValues: Array<number> = Array.from(Array(8).keys());
@@ -34,14 +34,14 @@ function Explorer() {
         <div className="panel">
           <h2>Choose {rgbOptions.control} value</h2>
           <div className="row">
-            {colourValues.map((greenVal) => {
+            {colourValues.map((controlVal) => {
               return (
                 <ColourSquare
-                  key={greenVal}
-                  colour={cssColourForControlValue(greenVal)}
-                  selected={greenVal == green}
+                  key={controlVal}
+                  colour={cssColourForControlValue(controlVal, rgbOptions)}
+                  selected={controlVal == control}
                   onClick={() => {
-                    setGreen(greenVal);
+                    setControl(controlVal);
                   }}
                 />
               );
@@ -49,30 +49,40 @@ function Explorer() {
           </div>
           <div className="vSpacer" />
           <div className="grid">
-            {colourValues.map((red) => {
+            {colourValues.map((var1) => {
               return (
-                <div key={red} className="row">
-                  {colourValues.map((blue) => {
+                <div key={var1} className="row">
+                  {colourValues.map((var2) => {
                     return (
                       <ColourSquare
-                        key={blue}
-                        colour={cssColourForGridValues(red, green, blue)}
+                        key={var2}
+                        colour={cssColourForValues(
+                          control,
+                          var1,
+                          var2,
+                          rgbOptions
+                        )}
                         copyable
                         onClick={() => {
                           navigator.clipboard
-                            .writeText(copyTextForGridValues(red, green, blue))
+                            .writeText(
+                              copyTextForValues(control, var1, var2, rgbOptions)
+                            )
                             .then(() =>
                               setStatus(
-                                `Copied ${copyTextForGridValues(
-                                  red,
-                                  green,
-                                  blue
+                                `Copied ${copyTextForValues(
+                                  control,
+                                  var1,
+                                  var2,
+                                  rgbOptions
                                 )}`
                               )
                             );
                         }}
                         onMouseEnter={() =>
-                          setStatus(copyTextForGridValues(red, green, blue))
+                          setStatus(
+                            copyTextForValues(control, var1, var2, rgbOptions)
+                          )
                         }
                         onMouseLeave={() => setStatus("")}
                       />

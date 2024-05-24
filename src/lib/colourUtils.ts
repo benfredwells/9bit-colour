@@ -33,11 +33,29 @@ export function hex2digit(num: number): string {
   return result;
 }
 
-export function copyTextForGridValues(
-  red: number,
-  green: number,
-  blue: number
+function controlAndVarsToRGB(
+  control: number,
+  var1: number,
+  var2: number,
+  options: RGBOptions
+): [number, number, number] {
+  switch (options.control) {
+    case "red":
+      return [control, var1, var2];
+    case "green":
+      return [var1, control, var2];
+    default:
+      return [var1, var2, control];
+  }
+}
+
+export function copyTextForValues(
+  control: number,
+  var1: number,
+  var2: number,
+  options: RGBOptions
 ): string {
+  let [red, green, blue] = controlAndVarsToRGB(control, var1, var2, options);
   return (
     "#" +
     hex2digit(from3bitTo8(red)) +
@@ -46,11 +64,13 @@ export function copyTextForGridValues(
   );
 }
 
-export function cssColourForGridValues(
-  red: number,
-  green: number,
-  blue: number
+export function cssColourForValues(
+  control: number,
+  var1: number,
+  var2: number,
+  options: RGBOptions
 ): string {
+  let [red, green, blue] = controlAndVarsToRGB(control, var1, var2, options);
   const result =
     "rgb(" +
     from3bitTo8(red) +
@@ -63,7 +83,9 @@ export function cssColourForGridValues(
   return result;
 }
 
-export function cssColourForControlValue(value: number): string {
-  const result = "rgb(0, " + from3bitTo8(value) + ", 0 )";
-  return result;
+export function cssColourForControlValue(
+  control: number,
+  options: RGBOptions
+): string {
+  return cssColourForValues(control, 0, 0, options);
 }
