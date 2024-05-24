@@ -60,3 +60,13 @@
 .status {
   height: 20px;
 }
+
+.menu {
+  text-align: left;
+  padding-left: 12px;
+}
+
+input {
+  margin-left: 12px;
+  margin-right: 12px;
+}
