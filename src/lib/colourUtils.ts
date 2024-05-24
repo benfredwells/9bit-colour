@@ -1,3 +1,22 @@
+type ControlColourChannel = "red" | "green" | "blue";
+type InterpolationMethod = "floor" | "ceiling" | "linear";
+export interface RGBOptions {
+  control: ControlColourChannel;
+  interpolation: InterpolationMethod;
+}
+
+export const ALL_CONTROL_CHANNELS: Array<ControlColourChannel> = [
+  "red",
+  "green",
+  "blue",
+];
+
+export const ALL_INTERPOLATION_METHODS: Array<InterpolationMethod> = [
+  "floor",
+  "ceiling",
+  "linear",
+];
+
 export function from3bitTo8(value: number): number {
   let num = value << 5;
   if (num != 0) {

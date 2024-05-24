@@ -1,33 +1,20 @@
-export type ControlColourChannel = "red" | "green" | "blue";
-export type InterpolationMethod = "floor" | "ceiling" | "linear";
-export interface RGBOptions {
-  control: ControlColourChannel;
-  interpolation: InterpolationMethod;
-}
+import {
+  ALL_CONTROL_CHANNELS,
+  ALL_INTERPOLATION_METHODS,
+  RGBOptions,
+} from "../lib/colourUtils";
 
 interface Props {
   options: RGBOptions;
   onOptionsChange: (options: RGBOptions) => void;
 }
 
-const allControlChannels: Array<ControlColourChannel> = [
-  "red",
-  "green",
-  "blue",
-];
-
-const allInterpolationMethods: Array<InterpolationMethod> = [
-  "floor",
-  "ceiling",
-  "linear",
-];
-
 function Menu({ options, onOptionsChange }: Props) {
   return (
     <div className="menu">
       <h2>Options</h2>
       <h3>Control channel</h3>
-      {allControlChannels.map((control) => {
+      {ALL_CONTROL_CHANNELS.map((control) => {
         return (
           <div key={control}>
             <input
@@ -42,7 +29,7 @@ function Menu({ options, onOptionsChange }: Props) {
         );
       })}
       <h3>Interpolation</h3>
-      {allInterpolationMethods.map((interpolation) => {
+      {ALL_INTERPOLATION_METHODS.map((interpolation) => {
         return (
           <div key={interpolation}>
             <input

@@ -2,16 +2,19 @@ import { useState } from "react";
 
 import "./explorer.css";
 import ColourSquare from "./colourSquare";
-import Menu, { RGBOptions } from "./rgbOptions";
+import Menu from "./rgbOptions";
 import {
+  RGBOptions,
   copyTextForGridValues,
   cssColourForControlValue,
   cssColourForGridValues,
 } from "../lib/colourUtils";
 
 function Explorer() {
-  const [rgbOptions, setRGBOptions] =
-    useState<RGBOptions>({control: "green", interpolation: "linear"});
+  const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
+    control: "green",
+    interpolation: "linear",
+  });
   const [green, setGreen] = useState(0);
   const [status, setStatus] = useState("");
 
@@ -29,7 +32,7 @@ function Explorer() {
         </div>
         <div className="hSpacer"></div>
         <div className="panel">
-          <h2>Choose green value</h2>
+          <h2>Choose {rgbOptions.control} value</h2>
           <div className="row">
             {colourValues.map((greenVal) => {
               return (
