@@ -3,6 +3,7 @@ Cleanup
 - refactor components a bit (e.g. have palette square, control square)
 - use em instead of px?
 - clean up index.css
+- better copy indicator (cursor is wrong)
 
 v0.1 RGB
 - ability to choose the control colour
