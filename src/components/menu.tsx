@@ -1,9 +1,10 @@
-type ControlColourChannel = "red" | "green" | "blue";
-type InterpolationMethod = "floor" | "ceiling" | "linear";
+export type ControlColourChannel = "red" | "green" | "blue";
+export type InterpolationMethod = "floor" | "ceiling" | "linear";
 
 interface Props {
   control: ControlColourChannel;
   interpolation: InterpolationMethod;
+  onControlChange: (control: ControlColourChannel) => void;
 }
 
 const allControlChannels: Array<ControlColourChannel> = [
@@ -11,13 +12,14 @@ const allControlChannels: Array<ControlColourChannel> = [
   "green",
   "blue",
 ];
+
 const allInterpolationMethods: Array<InterpolationMethod> = [
   "floor",
   "ceiling",
   "linear",
 ];
 
-function Menu({ control, interpolation }: Props) {
+function Menu({ control, interpolation, onControlChange }: Props) {
   return (
     <div className="menu">
       <h2>Options</h2>
@@ -30,6 +32,7 @@ function Menu({ control, interpolation }: Props) {
               name="control"
               id={channel}
               checked={channel == control}
+              onClick={() => onControlChange(channel)}
             />
             <label htmlFor={channel}>{channel}</label>
           </div>

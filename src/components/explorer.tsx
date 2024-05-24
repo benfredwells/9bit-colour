@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import "./explorer.css";
 import ColourSquare from "./colourSquare";
-import Menu from "./menu";
+import Menu, { ControlColourChannel } from "./menu";
 
 function Explorer() {
+  const [controlChannel, setControlChannel] =
+    useState<ControlColourChannel>("green");
   const [green, setGreen] = useState(0);
   const [status, setStatus] = useState("");
 
@@ -58,7 +60,11 @@ function Explorer() {
       <h1>9 bit colours</h1>
       <div className="row">
         <div className="panel">
-          <Menu control="green" interpolation="linear"/>
+          <Menu
+            control={controlChannel}
+            interpolation="linear"
+            onControlChange={(channel) => setControlChannel(channel)}
+          />
         </div>
         <div className="hSpacer"></div>
         <div className="panel">
