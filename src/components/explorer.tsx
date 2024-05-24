@@ -12,7 +12,7 @@ import {
 
 function Explorer() {
   const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
-    control: "green",
+    control: "red",
     interpolation: "linear",
   });
   const [control, setControl] = useState(0);
