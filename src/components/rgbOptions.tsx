@@ -1,10 +1,13 @@
 export type ControlColourChannel = "red" | "green" | "blue";
 export type InterpolationMethod = "floor" | "ceiling" | "linear";
-
-interface Props {
+export interface RGBOptions {
   control: ControlColourChannel;
   interpolation: InterpolationMethod;
-  onControlChange: (control: ControlColourChannel) => void;
+}
+
+interface Props {
+  options: RGBOptions;
+  onOptionsChange: (options: RGBOptions) => void;
 }
 
 const allControlChannels: Array<ControlColourChannel> = [
@@ -19,36 +22,37 @@ const allInterpolationMethods: Array<InterpolationMethod> = [
   "linear",
 ];
 
-function Menu({ control, interpolation, onControlChange }: Props) {
+function Menu({ options, onOptionsChange }: Props) {
   return (
     <div className="menu">
       <h2>Options</h2>
       <h3>Control channel</h3>
-      {allControlChannels.map((channel) => {
+      {allControlChannels.map((control) => {
         return (
-          <div key={channel}>
+          <div key={control}>
             <input
               type="radio"
               name="control"
-              id={channel}
-              checked={channel == control}
-              onClick={() => onControlChange(channel)}
+              id={control}
+              checked={control == options.control}
+              onClick={() => onOptionsChange({ ...options, control })}
             />
-            <label htmlFor={channel}>{channel}</label>
+            <label htmlFor={control}>{control}</label>
           </div>
         );
       })}
       <h3>Interpolation</h3>
-      {allInterpolationMethods.map((method) => {
+      {allInterpolationMethods.map((interpolation) => {
         return (
-          <div key={method}>
+          <div key={interpolation}>
             <input
               type="radio"
               name="interpolation"
-              id={method}
-              checked={method == interpolation}
+              id={interpolation}
+              checked={interpolation == options.interpolation}
+              onClick={() => onOptionsChange({ ...options, interpolation })}
             />
-            <label htmlFor={method}>{method}</label>
+            <label htmlFor={interpolation}>{interpolation}</label>
           </div>
         );
       })}

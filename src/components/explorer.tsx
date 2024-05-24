@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./explorer.css";
 import ColourSquare from "./colourSquare";
-import Menu, { ControlColourChannel } from "./rgbOptions";
+import Menu, { RGBOptions } from "./rgbOptions";
 import {
   copyTextForGridValues,
   cssColourForControlValue,
@@ -10,8 +10,8 @@ import {
 } from "../lib/colourUtils";
 
 function Explorer() {
-  const [controlChannel, setControlChannel] =
-    useState<ControlColourChannel>("green");
+  const [rgbOptions, setRGBOptions] =
+    useState<RGBOptions>({control: "green", interpolation: "linear"});
   const [green, setGreen] = useState(0);
   const [status, setStatus] = useState("");
 
@@ -23,9 +23,8 @@ function Explorer() {
       <div className="row">
         <div className="panel">
           <Menu
-            control={controlChannel}
-            interpolation="linear"
-            onControlChange={(channel) => setControlChannel(channel)}
+            options={rgbOptions}
+            onOptionsChange={(options) => setRGBOptions(options)}
           />
         </div>
         <div className="hSpacer"></div>
