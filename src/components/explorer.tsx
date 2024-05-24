@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./explorer.css";
 import ColourSquare from "./colourSquare";
-import Menu, { ControlColourChannel } from "./menu";
+import Menu, { ControlColourChannel } from "./rgbOptions";
 import {
   copyTextForGridValues,
   cssColourForControlValue,
