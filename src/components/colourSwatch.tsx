@@ -9,7 +9,7 @@ type Props = {
   setControl: (control: number) => void;
 };
 
-export function ColorSwatch({
+export function ColourSwatch({
   colourValues,
   rgbOptions,
   control,

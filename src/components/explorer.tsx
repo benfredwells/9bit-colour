@@ -8,7 +8,7 @@ import {
   copyTextForValues,
   cssColourForValues,
 } from "../lib/colourUtils";
-import { ColorSwatch } from "./colorSwatch";
+import { ColourSwatch } from "./colourSwatch";
 
 function Explorer() {
   const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
@@ -30,7 +30,7 @@ function Explorer() {
         <div className="hSpacer"></div>
         <div className="panel">
           <h2>Choose {rgbOptions.control} value</h2>
-          <ColorSwatch
+          <ColourSwatch
             colourValues={colourValues}
             rgbOptions={rgbOptions}
             control={control}
