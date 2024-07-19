@@ -78,6 +78,10 @@
   transition: margin 0.1s linear;
 }
 
+.logo {
+  fill: light-dark(black, white);
+}
+
 .colourSquare.copyable {
   cursor: copy;
 }
