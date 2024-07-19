@@ -32,16 +32,14 @@ type GridProps = {
 };
 
 export function Grid({
-  cellSize,
   children,
 }: React.PropsWithChildren<GridProps>) {
   return (
     <div
       style={{
         display: "grid",
-        gridAutoRows: cellSize,
-        gridAutoColumns: cellSize,
       }}
+      className="grid"
     >
       {children}
     </div>

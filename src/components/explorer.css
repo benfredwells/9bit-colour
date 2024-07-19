@@ -15,6 +15,13 @@
   flex-direction: row;
 }
 
+.grid {
+  grid-auto-rows: 50px;
+  grid-auto-columns: 50px;
+  gap: 10px;
+  padding-right: 12px;
+}
+
 .panel {
   border: light-dark(#888, #A0A0A0) 2px solid;
   border-radius: 15px;
@@ -35,9 +42,9 @@
 }
 
 .colourSquare {
-  width: 50px;
-  height: 50px;
   margin: 4px;
+  height: 100%;
+  width: 100%;
   border-width: 2px;
   border-color: light-dark(#555555, #A0A0A0);
   border-radius: 5px;

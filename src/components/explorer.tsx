@@ -6,9 +6,9 @@ import Menu from "./rgbOptions";
 import {
   RGBOptions,
   copyTextForValues,
-  cssColourForControlValue,
   cssColourForValues,
 } from "../lib/colourUtils";
+import { ColorSwatch } from "./colorSwatch";
 
 function Explorer() {
   const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
@@ -25,28 +25,17 @@ function Explorer() {
       <h1>9 bit colours</h1>
       <div className="row">
         <div className="panel">
-          <Menu
-            options={rgbOptions}
-            onOptionsChange={setRGBOptions}
-          />
+          <Menu options={rgbOptions} onOptionsChange={setRGBOptions} />
         </div>
         <div className="hSpacer"></div>
         <div className="panel">
           <h2>Choose {rgbOptions.control} value</h2>
-          <div className="row">
-            {colourValues.map((controlVal) => {
-              return (
-                <ColourSquare
-                  key={controlVal}
-                  colour={cssColourForControlValue(controlVal, rgbOptions)}
-                  selected={controlVal == control}
-                  onClick={() => {
-                    setControl(controlVal);
-                  }}
-                />
-              );
-            })}
-          </div>
+          <ColorSwatch
+            colourValues={colourValues}
+            rgbOptions={rgbOptions}
+            control={control}
+            setControl={setControl}
+          />
           <div className="vSpacer" />
           <div className="column">
             {colourValues.map((var1) => {
