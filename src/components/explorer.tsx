@@ -48,7 +48,7 @@ function Explorer() {
             })}
           </div>
           <div className="vSpacer" />
-          <div className="grid">
+          <div className="column">
             {colourValues.map((var1) => {
               return (
                 <div key={var1} className="row">

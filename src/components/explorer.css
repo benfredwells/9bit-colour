@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.grid {
+.column {
   display: flex;
   flex-direction: column;
 }
