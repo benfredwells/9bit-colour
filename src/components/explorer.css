@@ -46,6 +46,16 @@
   min-width: 200px;
 }
 
+.about {
+  margin-bottom: -5px;
+  vertical-align: top;
+}
+
+.about a {
+  padding-left: 8px;
+  vertical-align: top;
+}
+
 .colourSquare {
   margin: 4px;
   height: 100%;

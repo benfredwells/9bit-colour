@@ -5,6 +5,8 @@ import Menu from "./rgbOptions";
 import { RGBOptions } from "../lib/colourUtils";
 import { ColourSwatch } from "./colourSwatch";
 import { ColourGrid } from "./colourGrid";
+import { GithubLogo } from "./githubLogo";
+import { AboutBox } from "./aboutBox";
 
 function Explorer() {
   const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
@@ -43,7 +45,9 @@ function Explorer() {
         </div>
       </div>
       <div className="vPanelSpacer" />
-      <div className="panel">github</div>
+      <div className="panel">
+        <AboutBox />
+      </div>
     </div>
   );
 }
