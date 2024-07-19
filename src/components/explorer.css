@@ -18,8 +18,9 @@
 .grid {
   grid-auto-rows: 50px;
   grid-auto-columns: 50px;
-  gap: 10px;
+  gap: 12px;
   padding-right: 12px;
+  padding-bottom: 12px;
 }
 
 .panel {

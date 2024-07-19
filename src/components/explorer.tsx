@@ -1,14 +1,10 @@
 import { useState } from "react";
 
 import "./explorer.css";
-import ColourSquare from "./colourSquare";
 import Menu from "./rgbOptions";
-import {
-  RGBOptions,
-  copyTextForValues,
-  cssColourForValues,
-} from "../lib/colourUtils";
+import { RGBOptions } from "../lib/colourUtils";
 import { ColourSwatch } from "./colourSwatch";
+import { ColourGrid } from "./colourGrid";
 
 function Explorer() {
   const [rgbOptions, setRGBOptions] = useState<RGBOptions>({
@@ -37,50 +33,12 @@ function Explorer() {
             setControl={setControl}
           />
           <div className="vSpacer" />
-          <div className="column">
-            {colourValues.map((var1) => {
-              return (
-                <div key={var1} className="row">
-                  {colourValues.map((var2) => {
-                    return (
-                      <ColourSquare
-                        key={var2}
-                        colour={cssColourForValues(
-                          control,
-                          var1,
-                          var2,
-                          rgbOptions
-                        )}
-                        copyable
-                        onClick={() => {
-                          navigator.clipboard
-                            .writeText(
-                              copyTextForValues(control, var1, var2, rgbOptions)
-                            )
-                            .then(() =>
-                              setStatus(
-                                `Copied ${copyTextForValues(
-                                  control,
-                                  var1,
-                                  var2,
-                                  rgbOptions
-                                )}`
-                              )
-                            );
-                        }}
-                        onMouseEnter={() =>
-                          setStatus(
-                            copyTextForValues(control, var1, var2, rgbOptions)
-                          )
-                        }
-                        onMouseLeave={() => setStatus("")}
-                      />
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
+          <ColourGrid
+            colourValues={colourValues}
+            rgbOptions={rgbOptions}
+            control={control}
+            setStatus={setStatus}
+          />
           <div className="status">{status}</div>
         </div>
       </div>

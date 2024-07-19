@@ -28,7 +28,6 @@ export function GridCell({
 }
 
 type GridProps = {
-  cellSize: string;
 };
 
 export function Grid({

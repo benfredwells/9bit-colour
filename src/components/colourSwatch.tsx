@@ -16,10 +16,10 @@ export function ColourSwatch({
   setControl,
 }: Props) {
   return (
-    <Grid cellSize={"50px"}>
+    <Grid>
       {colourValues.map((controlVal) => {
         return (
-          <GridCell pos={{ row: 1, col: controlVal }}>
+          <GridCell pos={{ row: 1, col: controlVal+1 }}>
             <ColourSquare
               key={controlVal}
               colour={cssColourForControlValue(controlVal, rgbOptions)}
