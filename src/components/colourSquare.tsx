@@ -13,6 +13,7 @@ function ColourSquare({
   console.log(`Colour: ${colour}`);
   const style = {
     backgroundColor: colour,
+    borderColor: colour,
   };
 
   let classes = "colourSquare";

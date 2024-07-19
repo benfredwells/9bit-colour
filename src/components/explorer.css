@@ -61,7 +61,6 @@
   height: 100%;
   width: 100%;
   border-width: 2px;
-  border-color: light-dark(#555555, #A0A0A0);
   border-radius: 5px;
   border-style: solid;
 }
