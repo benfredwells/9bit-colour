@@ -24,10 +24,10 @@
 }
 
 .panel {
-  border: light-dark(#888, #A0A0A0) 2px solid;
+  border: light-dark(#888, #a0a0a0) 2px solid;
   border-radius: 15px;
   padding: 10px;
-  background-color: light-dark(#F5F5F5, #090909);
+  background-color: light-dark(#f5f5f5, #090909);
 }
 
 .hPanelSpacer {
@@ -63,13 +63,19 @@
   border-width: 2px;
   border-radius: 5px;
   border-style: solid;
-  box-shadow: light-dark(#CCC, #333) 2px 2px;
+  box-shadow: light-dark(#ccc, #333) 2px 2px;
 }
 
-.colourSquare:hover,
 .colourSquare.selected {
   border-width: 5px;
   margin: 1px;
+}
+
+.colourSquare:hover {
+  border-width: 5px;
+  margin: 1px;
+  transition: border-width 0.1s linear;
+  transition: margin 0.1s linear;
 }
 
 .colourSquare.copyable {
