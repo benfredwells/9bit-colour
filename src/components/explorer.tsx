@@ -17,13 +17,13 @@ function Explorer() {
   const colourValues: Array<number> = Array.from(Array(8).keys());
 
   return (
-    <>
+    <div className="column">
       <h1>9 bit colours</h1>
       <div className="row">
         <div className="panel">
           <Menu options={rgbOptions} onOptionsChange={setRGBOptions} />
         </div>
-        <div className="hSpacer"></div>
+        <div className="hPanelSpacer"></div>
         <div className="panel">
           <h2>Choose {rgbOptions.control} value</h2>
           <ColourSwatch
@@ -42,7 +42,9 @@ function Explorer() {
           <div className="status">{status}</div>
         </div>
       </div>
-    </>
+      <div className="vPanelSpacer" />
+      <div className="panel">github</div>
+    </div>
   );
 }
 

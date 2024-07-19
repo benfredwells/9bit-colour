@@ -30,8 +30,12 @@
   background-color: light-dark(#F5F5F5, #090909);
 }
 
-.hSpacer {
+.hPanelSpacer {
   width: 10px;
+}
+
+.vPanelSpacer {
+  height: 10px;
 }
 
 .vSpacer {
