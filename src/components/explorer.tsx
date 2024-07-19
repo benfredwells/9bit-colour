@@ -27,7 +27,7 @@ function Explorer() {
         <div className="panel">
           <Menu
             options={rgbOptions}
-            onOptionsChange={(options) => setRGBOptions(options)}
+            onOptionsChange={setRGBOptions}
           />
         </div>
         <div className="hSpacer"></div>
