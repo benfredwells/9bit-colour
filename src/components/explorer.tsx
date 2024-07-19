@@ -5,7 +5,6 @@ import Menu from "./rgbOptions";
 import { RGBOptions } from "../lib/colourUtils";
 import { ColourSwatch } from "./colourSwatch";
 import { ColourGrid } from "./colourGrid";
-import { GithubLogo } from "./githubLogo";
 import { AboutBox } from "./aboutBox";
 
 function Explorer() {
